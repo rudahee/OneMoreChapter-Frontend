@@ -1,0 +1,59 @@
+:root {
+  --bg: #12100e;
+  --surface: #1c1917;
+  --border: #2e2a26;
+  --text: #ede9e4;
+  --muted: #9a938a;
+  --accent: #c2703a;
+  --danger: #b4472f;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Sin esto, el WebView de Android permite arrastrar toda la página. */
+  overscroll-behavior-y: none;
+}
+
+/* Zona segura: en un móvil con notch o barra de gestos, el contenido pegado
+   al borde queda tapado. */
+.safe {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  /* 44px es el mínimo tocable cómodo en móvil. */
+  min-height: 44px;
+}
+
+button.primary { background: var(--accent); border-color: var(--accent); color: #12100e; font-weight: 600; }
+button:disabled { opacity: 0.5; cursor: default; }
+
+input, select {
+  font: inherit;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.muted { color: var(--muted); font-size: 0.875rem; }
+.error { color: var(--danger); font-size: 0.875rem; }

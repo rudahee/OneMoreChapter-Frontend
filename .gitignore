@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.angular/
+# Capacitor genera estos directorios con `npx cap add`. Se pueden versionar si
+# tocas codigo nativo; si no, es ruido.
+android/
+ios/
+.env
+*.log
+.DS_Store
